@@ -1,0 +1,4 @@
+# Python関連のファイル
+__pycache__/
+# 環境設定ファイル
+config.py
