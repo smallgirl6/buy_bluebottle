@@ -23,7 +23,7 @@ Automate the process of purchasing limited edition products from Blue Bottle at 
 
 6. **Confirm Shipping Information:** <br>Confirm the shipping information page and click the "お支払いへ進む" button.
 
-7. **Credit Card Payment (Skipped):**<br> Enter the new card information and click the "今すぐ支払う" button.
+7. **Credit Card Payment:**<br> Enter the new card information and click the "今すぐ支払う" button.
 
 8. **<strike>Select Amazon Pay (Skipped):**</strike> <br>Choose Amazon Pay as the payment method and click the "今すぐ支払う" button.
 
