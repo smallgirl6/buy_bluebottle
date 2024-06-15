@@ -47,44 +47,59 @@ try:
     # time.sleep(5)
     print("1.SKIP")
 
-# 2.第一の商品を購入
-    # 指定URLを開く
+# 2.商品1を購入
+   # 指定URLを開く
     driver.get(config.blueboyttle_collaboration_link)
-    # 「blueboyttle_PRODUCT_NAME1_TEST」を含む商品リンクを探す
+   # 検索ボタンをクリック
+    search_button = WebDriverWait(driver, 20).until(
+        EC.element_to_be_clickable((By.CSS_SELECTOR, "a.Header__Icon.Header__searchIcon"))
+    )
+    search_button.click()
+    # 検索ボックスが表示されるのを待つ
+    search_input = WebDriverWait(driver, 20).until(
+        EC.presence_of_element_located((By.XPATH, "//input[@type='search' and @class='Search__Input Heading']"))
+    )
+    search_input.send_keys(config.blueboyttle_PRODUCT_NAME1_TEST)
+    # 検索結果から環境変数を含む商品リンクをクリック
     product_link1 = WebDriverWait(driver, 20).until(
         EC.element_to_be_clickable((By.XPATH, f"//a[contains(text(), '{config.blueboyttle_PRODUCT_NAME1_TEST}')]"))
     )
-    # 清澄マグの商品リンクをクリック
     product_link1.click()
-    # ページが読み込まれるのを待ち、「カートに追加」ボタンがインタラクティブか確認
+    # ページが読み込まれるのを待ち、「カートに追加」ボタンをクリック
     add_to_cart_button1 = WebDriverWait(driver, 20).until(
         EC.element_to_be_clickable((By.XPATH, "//button[@id='Product__AddToCartButton']"))
     )
-    # 「カートに追加」ボタンをクリック
     add_to_cart_button1.click()
     # 商品がカートに正常に追加されたことを確認
     print("2." + f"{config.blueboyttle_PRODUCT_NAME1_TEST}がカートに正常に追加されました。")
 
-# 3.第二の商品を購入
+# 3.商品2を購入
     # 指定URLを開く
     driver.get(config.blueboyttle_collaboration_link)
-    # 「blueboyttle_PRODUCT_NAME2_TEST」を含む商品リンクを探す
-    product_link2 = WebDriverWait(driver, 20).until(
+   # 検索ボタンをクリック
+    search_button = WebDriverWait(driver, 20).until(
+        EC.element_to_be_clickable((By.CSS_SELECTOR, "a.Header__Icon.Header__searchIcon"))
+    )
+    search_button.click()
+    # 検索ボックスが表示されるのを待つ
+    search_input = WebDriverWait(driver, 20).until(
+        EC.presence_of_element_located((By.XPATH, "//input[@type='search' and @class='Search__Input Heading']"))
+    )
+    search_input.send_keys(config.blueboyttle_PRODUCT_NAME2_TEST)
+    # 検索結果から環境変数を含む商品リンクをクリック
+    product_link1 = WebDriverWait(driver, 20).until(
         EC.element_to_be_clickable((By.XPATH, f"//a[contains(text(), '{config.blueboyttle_PRODUCT_NAME2_TEST}')]"))
     )
-    # デイオフ タンブラーの商品リンクをクリック
-    product_link2.click()
-    # ページが読み込まれるのを待ち、「カートに追加」ボタンがインタラクティブか確認
-    add_to_cart_button2 = WebDriverWait(driver, 20).until(
+    product_link1.click()
+    # ページが読み込まれるのを待ち、「カートに追加」ボタンをクリック
+    add_to_cart_button1 = WebDriverWait(driver, 20).until(
         EC.element_to_be_clickable((By.XPATH, "//button[@id='Product__AddToCartButton']"))
     )
-    # 「カートに追加」ボタンをクリック
-    add_to_cart_button2.click()
+    add_to_cart_button1.click()
     # 商品がカートに正常に追加されたことを確認
     print("3." + f"{config.blueboyttle_PRODUCT_NAME2_TEST}がカートに正常に追加されました。")
-    # カートに追加するのを待つ
-    time.sleep(3)
-    
+    time.sleep(5)
+
 # 4.買い物が終わり、チェックアウトの準備
     # 「上記事項を確認しました」のチェックボックスを選択
     confirm_checkbox = WebDriverWait(driver, 20).until(
@@ -151,97 +166,100 @@ try:
     time.sleep(5)
 
 # 7.クレジットカード支払い情報を入力（OTP認証が必要なため、スキップ）
-    # iframe_number = WebDriverWait(driver, 20).until(
-    #     EC.presence_of_element_located((By.XPATH, "//iframe[contains(@name, 'card-fields-number')]"))
-    # )
-    # driver.switch_to.frame(iframe_number)
-    # card_number_input = driver.find_element(By.NAME, "number")
-    # card_number_input.send_keys(config.card_number)
-    # driver.switch_to.default_content()
-    # iframe_name = WebDriverWait(driver, 20).until(
-    #     EC.presence_of_element_located((By.XPATH, "//iframe[contains(@name, 'card-fields-name')]"))
-    # )
-    # driver.switch_to.frame(iframe_name)
-    # card_name_input = driver.find_element(By.NAME, "name")
-    # card_name_input.send_keys(config.card_name)
-    # driver.switch_to.default_content()
-    # iframe_expiry = WebDriverWait(driver, 20).until(
-    #     EC.presence_of_element_located((By.XPATH, "//iframe[contains(@name, 'card-fields-expiry')]"))
-    # )
-    # driver.switch_to.frame(iframe_expiry)
-    # card_expiry_input = driver.find_element
-    # (By.NAME, "expiry")
-    # # 先に月を入力
-    # card_expiry_input.send_keys(config.card_expiry_month)
-    # time.sleep(1)  # 一秒待つ
-    # # 次に年を入力
-    # card_expiry_input.send_keys(config.card_expiry_year)
-    # driver.switch_to.default_content()
-    # time.sleep(3)
-    # iframe_verification = WebDriverWait(driver, 20).until(
-    #     EC.presence_of_element_located((By.XPATH, "//iframe[contains(@name, 'card-fields-verification')]"))
-    # )
-    # driver.switch_to.frame(iframe_verification)
-    # card_verification_value_input = driver.find_element(By.NAME, "verification_value")
-    # card_verification_value_input.send_keys(config.card_verification)
-    # driver.switch_to.default_content()
-    # # 入力に問題がないことを確認するために少し待つ
-    # time.sleep(5)
-    print("7.SKIP")
-# 8. Amazon Payを選択
-    amazon_pay_radio = WebDriverWait(driver, 20).until(
-        EC.element_to_be_clickable((By.ID, "checkout_payment_gateway_39563100208"))
+    iframe_number = WebDriverWait(driver, 20).until(
+        EC.presence_of_element_located((By.XPATH, "//iframe[contains(@name, 'card-fields-number')]"))
     )
-    amazon_pay_radio.click()    
-    print("8.Amazon Payを選択しました。") 
-    # 「今すぐ支払う」ボタンをクリック
+    driver.switch_to.frame(iframe_number)
+    card_number_input = driver.find_element(By.NAME, "number")
+    card_number_input.send_keys(config.card_number)
+    driver.switch_to.default_content()
+    iframe_name = WebDriverWait(driver, 20).until(
+        EC.presence_of_element_located((By.XPATH, "//iframe[contains(@name, 'card-fields-name')]"))
+    )
+    driver.switch_to.frame(iframe_name)
+    card_name_input = driver.find_element(By.NAME, "name")
+    card_name_input.send_keys(config.card_name)
+    driver.switch_to.default_content()
+    iframe_expiry = WebDriverWait(driver, 20).until(
+        EC.presence_of_element_located((By.XPATH, "//iframe[contains(@name, 'card-fields-expiry')]"))
+    )
+    driver.switch_to.frame(iframe_expiry)
+    card_expiry_input = driver.find_element(By.NAME, "expiry")
+    # 先に月を入力
+    card_expiry_input.send_keys(config.card_expiry_month)
+    time.sleep(1)  # 一秒待つ
+    # 次に年を入力
+    card_expiry_input.send_keys(config.card_expiry_year)
+    driver.switch_to.default_content()
+    time.sleep(3)
+    iframe_verification = WebDriverWait(driver, 20).until(
+        EC.presence_of_element_located((By.XPATH, "//iframe[contains(@name, 'card-fields-verification')]"))
+    )
+    driver.switch_to.frame(iframe_verification)
+    card_verification_value_input = driver.find_element(By.NAME, "verification_value")
+    card_verification_value_input.send_keys(config.card_verification2)
+    driver.switch_to.default_content()
+    # 入力に問題がないことを確認するために少し待つ
+    time.sleep(5)
     pay_now_button = driver.find_element(By.ID, "continue_button")
     pay_now_button.click()
-    # Amazon Payのログインページに遷移するのを待つ
-    time.sleep(5)
+    time.sleep(10)
+    print("7.「今すぐ支払う」ボタンが正常にクリックされました。")
 
-# 9. Amazon Payのログインページでメールアドレスとパスワードを入力
-    amazon_email_input = WebDriverWait(driver, 20).until(
-        EC.element_to_be_clickable((By.ID, "ap_email"))
-    )
-    amazon_password_input = WebDriverWait(driver, 20).until(
-        EC.element_to_be_clickable((By.ID, "ap_password"))
-    )
-    amazon_email_input.send_keys(config.amazon_account)
-    amazon_password_input.send_keys(config.amazon_password)
-    # 「signin」ボタンをクリック
-    amazon_login_button = WebDriverWait(driver, 20).until(
-        EC.element_to_be_clickable((By.ID, "signInSubmit"))
-    )
-    amazon_login_button.click()
-    print("9.「signin」ボタンが正常にクリックされました。")
-    time.sleep(5)
-    # Amazon Payの配送方法ページに遷移するのを待つ
+# # 8. Amazon Payを選択
+#     amazon_pay_radio = WebDriverWait(driver, 20).until(
+#         EC.element_to_be_clickable((By.ID, "checkout_payment_gateway_39563100208"))
+#     )
+#     amazon_pay_radio.click()    
+#     print("8.Amazon Payを選択しました。") 
+#     # 「今すぐ支払う」ボタンをクリック
+#     pay_now_button = driver.find_element(By.ID, "continue_button")
+#     pay_now_button.click()
+#     # Amazon Payのログインページに遷移するのを待つ
+#     time.sleep(5)
 
-# 10. Amazon Payのページでデフォルトの配送情報を選択
-    distribution_button = WebDriverWait(driver, 20).until(
-        EC.element_to_be_clickable((By.XPATH, "//button[@id='continue_button']/span[text()='配送方法の選択へ進む']/.."))
-    )
-    distribution_button.click()
-    print("10.Amazon Payの「配送方法の選択へ進む」ボタンが正常にクリックされました。")
-    time.sleep(5)
-    # Amazon Payの支払い方法ページに遷移するのを待つ
+# # 9. Amazon Payのログインページでメールアドレスとパスワードを入力
+#     amazon_email_input = WebDriverWait(driver, 20).until(
+#         EC.element_to_be_clickable((By.ID, "ap_email"))
+#     )
+#     amazon_password_input = WebDriverWait(driver, 20).until(
+#         EC.element_to_be_clickable((By.ID, "ap_password"))
+#     )
+#     amazon_email_input.send_keys(config.amazon_account)
+#     amazon_password_input.send_keys(config.amazon_password)
+#     # 「signin」ボタンをクリック
+#     amazon_login_button = WebDriverWait(driver, 20).until(
+#         EC.element_to_be_clickable((By.ID, "signInSubmit"))
+#     )
+#     amazon_login_button.click()
+#     print("9.「signin」ボタンが正常にクリックされました。")
+#     time.sleep(5)
+#     # Amazon Payの配送方法ページに遷移するのを待つ
 
-# 11. Amazon Payのページでデフォルトのクレジットカード情報を選択
-    payment_button = WebDriverWait(driver, 20).until(
-        EC.element_to_be_clickable((By.XPATH, "//button[@id='continue_button']/span[text()='お支払いへ進む']/.."))
-    )
-    payment_button.click()
-    print("11.Amazon Payの「お支払いへ進む」ボタンが正常にクリックされました。")
+# # 10. Amazon Payのページでデフォルトの配送情報を選択
+#     distribution_button = WebDriverWait(driver, 20).until(
+#         EC.element_to_be_clickable((By.XPATH, "//button[@id='continue_button']/span[text()='配送方法の選択へ進む']/.."))
+#     )
+#     distribution_button.click()
+#     print("10.Amazon Payの「配送方法の選択へ進む」ボタンが正常にクリックされました。")
+#     time.sleep(5)
+#     # Amazon Payの支払い方法ページに遷移するのを待つ
+
+# # 11. Amazon Payのページでデフォルトのクレジットカード情報を選択
+#     payment_button = WebDriverWait(driver, 20).until(
+#         EC.element_to_be_clickable((By.XPATH, "//button[@id='continue_button']/span[text()='お支払いへ進む']/.."))
+#     )
+#     payment_button.click()
+#     print("11.Amazon Payの「お支払いへ進む」ボタンが正常にクリックされました。")
 
 # 12. 最後のチェックアウトページで「ご注文完了」ボタンをクリック
-    order_complete_button = WebDriverWait(driver, 20).until(
-        EC.element_to_be_clickable((By.XPATH, "//button[@id='continue_button']/span[text()='ご注文完了']/.."))
-    )
-    order_complete_button.click()
-    print("12.「ご注文完了」ボタンが正常にクリックされました。")
-    # 買い物が成功したことを確認するために少し待つ
-    time.sleep(10)
+    # order_complete_button = WebDriverWait(driver, 20).until(
+    #     EC.element_to_be_clickable((By.XPATH, "//button[@id='continue_button']/span[text()='ご注文完了']/.."))
+    # )
+    # order_complete_button.click()
+    # print("12.「ご注文完了」ボタンが正常にクリックされました。")
+    # # 買い物が成功したことを確認するために少し待つ
+    # time.sleep(10)
 
 # 13. 成功メールを送信
     # メールサーバーの設定
