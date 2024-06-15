@@ -23,7 +23,7 @@ Automate the process of purchasing limited edition products from Blue Bottle at 
 
 6. **Confirm Shipping Information:** <br>Confirm the shipping information page and click the "お支払いへ進む" button.
 
-7. **<strike>Credit Card Payment (Skipped):**</strike><br> Enter the new card information and click the "今すぐ支払う" button.
+7. **Credit Card Payment:**<br> Enter the new card information and click the "今すぐ支払う" button.
 
 8. **<strike>Select Amazon Pay (Skipped):**</strike> <br>Choose Amazon Pay as the payment method and click the "今すぐ支払う" button.
 
@@ -35,7 +35,7 @@ Automate the process of purchasing limited edition products from Blue Bottle at 
 
 12. **<strike>Final Checkout (Skipped):** </strike><br>On the final checkout page, click the "ご注文完了" button.
 
-13. **<strike>Send Success Email:** <br>Send an email notification of the successful purchase to my inbox.
+13. **Send Success Email:** <br>Send an email notification of the successful purchase to my inbox.
 
 **Note:** Since the purchase needs to be made at a specified time, configure the Task Scheduler to specify the time and script to be executed. Also, ensure it is set to wake the computer from sleep mode to execute the script.
 
