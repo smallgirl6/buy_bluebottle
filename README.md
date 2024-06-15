@@ -13,13 +13,9 @@ Automate the process of purchasing limited edition products from Blue Bottle at 
 
 1. <strike>**Login Issue(Skipped):**</strike> <br>Initially, the script was supposed to log into the Blue Bottle member page, but since it requires two-factor authentication during purchase, it is more cumbersome. Therefore, the login code is commented out, and we will proceed with guest mode for purchasing.
 
-2. **Purchase First Item:** <br>Navigate to the specified Blue Bottle product page and purchase the first item by adding it to the cart.
+2. **Purchase First Item:** <br>Navigate to the Blue Bottle website, click on the magnifying glass to open the search bar, enter the product name in the search bar to find the desired item, click on the item to go to the product page, and add the product to the cart.
 
-3. **Purchase Second Item:** <br>Navigate to the specified Blue Bottle product page and purchase the second item by adding it to the cart.
-
-2. **Purchase First Item:** <br>Navigate to the specified Blue Bottle product page and purchase the first item by adding it to the cart.
-
-3. **Purchase Second Item:** <br>Navigate to the specified Blue Bottle product page and purchase the second item by adding it to the cart.
+3. **Purchase Second Item:** <br>Navigate to the Blue Bottle website, click on the magnifying glass to open the search bar, enter the product name in the search bar to find the desired item, click on the item to go to the product page, and add the product to the cart.
 
 4. **Prepare for Checkout:** <br>After finishing shopping, select the checkbox "上記事項を確認しました" and click the "ご購入手続きへ" button.
 
@@ -27,19 +23,19 @@ Automate the process of purchasing limited edition products from Blue Bottle at 
 
 6. **Confirm Shipping Information:** <br>Confirm the shipping information page and click the "お支払いへ進む" button.
 
-7. **<strike>Credit Card Payment (Skipped):**</strike><br> Filling in the credit card payment information is skipped because my credit card requires OTP authentication, which is more cumbersome. Therefore, this part of the code is commented out.
+7. **<strike>Credit Card Payment (Skipped):**</strike><br> Enter the new card information and click the "今すぐ支払う" button.
 
-8. **Select Amazon Pay:** <br>Choose Amazon Pay as the payment method and click the "今すぐ支払う" button.
+8. **<strike>Select Amazon Pay (Skipped):**</strike> <br>Choose Amazon Pay as the payment method and click the "今すぐ支払う" button.
 
-9. **Amazon Pay Login:** <br>On the Amazon Pay login page, fill in the email and password, then click the "signin" button.
+9. **<strike>Amazon Pay Login (Skipped):**</strike> <br>On the Amazon Pay login page, fill in the email and password, then click the "signin" button.
 
-10. **Select Shipping Information on Amazon Pay:** <br>On the Amazon Pay page, select the default shipping information and click the "配送方法の選択へ進む" button.
+10. **<strike>Select Shipping Information on Amazon Pay (Skipped):** </strike><br>On the Amazon Pay page, select the default shipping information and click the "配送方法の選択へ進む" button.
 
-11. **Select Payment Information on Amazon Pay:** <br>On the Amazon Pay page, select the default credit card information and click the "お支払いへ進む" button.
+11. **<strike>Select Payment Information on Amazon Pay (Skipped):**</strike> <br>On the Amazon Pay page, select the default credit card information and click the "お支払いへ進む" button.
 
-12. **Final Checkout:** <br>On the final checkout page, click the "ご注文完了" button.
+12. **<strike>Final Checkout (Skipped):** </strike><br>On the final checkout page, click the "ご注文完了" button.
 
-13. **Send Success Email:** <br>Send an email notification of the successful purchase to my inbox.
+13. **<strike>Send Success Email:** <br>Send an email notification of the successful purchase to my inbox.
 
 **Note:** Since the purchase needs to be made at a specified time, configure the Task Scheduler to specify the time and script to be executed. Also, ensure it is set to wake the computer from sleep mode to execute the script.
 
